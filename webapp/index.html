@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webapp</title>
+</head>docker rm $(docker ps -a -q)
+<body>
+    <h1>Welcome to my static website!</h1>
+    <button id="fetch-data">Fetch Data</button>
+    <p id="api-response"></p>
+
+    <script>
+        document.getElementById('fetch-data').addEventListener('click', () => {
+            fetch('http://34.57.134.205:5000/api')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('api-response').textContent = JSON.stringify(data);
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                    document.getElementById('api-response').textContent = 'Error fetching data';
+                });
+        });
+    </script>
+</body>
+</html>
