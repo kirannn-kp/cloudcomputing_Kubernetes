@@ -11,7 +11,7 @@
 
     <script>
         document.getElementById('fetch-data').addEventListener('click', () => {
-            fetch('http://34.57.134.205:5000/api')
+            fetch('http://localhost:8080/api')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('api-response').textContent = JSON.stringify(data);
